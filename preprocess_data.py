@@ -154,6 +154,8 @@ df =df[df['company_id'].notna()]
 # renaming columns to be as The ER diagram
 df.rename(columns={'job_id': 'JID', 'company_id':'CID', 'description': 'Description', 'title':'Title'}, inplace=True)
 
+df['CID'] = df['CID'].astype(int)
+
 # Tokenize description
 tokenize_col(df, 'Description')
 tokenize_col(df, 'skills_desc')

@@ -88,7 +88,7 @@ with open('data_cleaned/company_details/companies.csv', 'r', encoding='utf-8') a
 # job_posting CSV for the --Job Table--
 with open('data_cleaned/job_details/job_postings.csv', 'r',encoding='utf-8') as csvfile:
     reader = csv.DictReader(csvfile)
-    job_data = []  
+    job_data = []
     for row in reader:
         job_data.append((
             safe_int(row['JID']),
@@ -97,6 +97,8 @@ with open('data_cleaned/job_details/job_postings.csv', 'r',encoding='utf-8') as 
             row['skills_desc'],
             row['work_type']
         ))
+
+    print(job_data[0])
 
     # Insert data into job table using batch operation for efficiency
     execute_values(cursor, """
